@@ -2,11 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+/Legends Of Zanzark Ascension/[Ll]ibrary/
+/Legends Of Zanzark Ascension/[Tt]emp/
+/Legends Of Zanzark Ascension/[Oo]bj/
+/Legends Of Zanzark Ascension/[Bb]uild/
+/Legends Of Zanzark Ascension/[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
