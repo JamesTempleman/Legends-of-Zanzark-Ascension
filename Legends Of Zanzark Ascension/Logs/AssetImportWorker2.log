@@ -15,7 +15,7 @@ C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends O
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-64842
+50007
 Successfully changed project path to: C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends Of Zanzark Ascension
 C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends Of Zanzark Ascension
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends O
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 149.24 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 398.09 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.7f1 (24e8595d6d43)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -58,136 +58,47 @@ Direct3D:
     Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
     Vendor:   NVIDIA
     VRAM:     12142 MB
-    Driver:   30.0.15.1215
+    Driver:   31.0.15.1694
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56172
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56768
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010471 seconds.
+Registered in 0.053366 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 124.23 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 434.55 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.911 seconds
+- Completed reload, in  3.585 seconds
 Domain Reload Profiling:
-	ReloadAssembly (911ms)
-		BeginReloadAssembly (83ms)
+	ReloadAssembly (3587ms)
+		BeginReloadAssembly (387ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (676ms)
-			LoadAssemblies (80ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (2446ms)
+			LoadAssemblies (372ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (139ms)
+			SetupTypeCache (675ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (418ms)
+			RebuildScriptCaches (146ms)
+			SetupLoadedEditorAssemblies (1319ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (124ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (216ms)
-				ProcessInitializeOnLoadMethodAttributes (64ms)
+				InitializePlatformSupportModulesInManaged (46ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (435ms)
+				BeforeProcessingInitializeOnLoad (4ms)
+				ProcessInitializeOnLoadAttributes (637ms)
+				ProcessInitializeOnLoadMethodAttributes (196ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.010495 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.504 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1505ms)
-		BeginReloadAssembly (177ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (24ms)
-		EndReloadAssembly (1179ms)
-			LoadAssemblies (104ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (388ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (542ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (168ms)
-				ProcessInitializeOnLoadAttributes (312ms)
-				ProcessInitializeOnLoadMethodAttributes (41ms)
-				AfterProcessingInitializeOnLoad (11ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3377 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 27 unused Assets / (111.1 KB). Loaded Objects now: 3835.
-Memory consumption went from 117.4 MB to 117.2 MB.
-Total: 3.754000 ms (FindLiveObjects: 0.320300 ms CreateObjectMapping: 0.222200 ms MarkObjects: 3.092400 ms  DeleteObjects: 0.118300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 863426.950687 seconds.
-  path: Assets/Sprites/World Map of Zanzark V1.png
-  artifactKey: Guid(2d450150c5147734aa2e0170db75d927) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/World Map of Zanzark V1.png using Guid(2d450150c5147734aa2e0170db75d927) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4639c90da9ead722f6ad0bb860542d3b') in 0.223639 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.343699 seconds.
-  path: Assets/Sprites/Mainlandbrush.png
-  artifactKey: Guid(57117d8469b9d524293f87fec6cfba9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Mainlandbrush.png using Guid(57117d8469b9d524293f87fec6cfba9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee541491aff7a2331f96ee13d9138c45') in 0.028287 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.011683 seconds.
-  path: Assets/Sprites/Ardune V1.png
-  artifactKey: Guid(53fce0df562a85d49a4bf5c2b5e762ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Ardune V1.png using Guid(53fce0df562a85d49a4bf5c2b5e762ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '724433c5564b0c8bd25b08c71c3ab23e') in 0.186932 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000038 seconds.
-  path: Assets/Sprites/LeidianBrush.png
-  artifactKey: Guid(a645820a1907d2c409a780eb00d1b706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/LeidianBrush.png using Guid(a645820a1907d2c409a780eb00d1b706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca0536dfc715266632cb83a687b2b5d7') in 0.055205 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000059 seconds.
-  path: Assets/Sprites/RavenCrestIsleBrush.png
-  artifactKey: Guid(834bdd6889cdd4c49afd9fdc233f53ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/RavenCrestIsleBrush.png using Guid(834bdd6889cdd4c49afd9fdc233f53ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3711c4e78102f7e178e7b3fa93907234') in 0.048351 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+Registered in 0.037641 seconds.
