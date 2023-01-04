@@ -49,4 +49,6 @@ MonoBehaviour:
   - TileDataSync
   - SyncTileData
   - RecieveTileData
+  - NextGamePhase
+  - NextTurn
   DisableAutoOpenWizard: 1

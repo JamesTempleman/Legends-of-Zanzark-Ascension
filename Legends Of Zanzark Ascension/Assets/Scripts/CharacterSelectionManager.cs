@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterSelectionManager : MonoBehaviour, IPunObservable
+public class CharacterSelectionManager : MonoBehaviour
 {
     public List<PlayerManager> Players;
     public Button[] SelectBut;
@@ -49,8 +49,4 @@ public class CharacterSelectionManager : MonoBehaviour, IPunObservable
         CoverPanel.SetActive(true);
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-
-    }
 }

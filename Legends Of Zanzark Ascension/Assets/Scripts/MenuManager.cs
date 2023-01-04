@@ -21,7 +21,6 @@ public class MenuManager : MonoBehaviour
     private void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
-        Debug.Log("Connected");
         JoinPanel.SetActive(true);
     }
 

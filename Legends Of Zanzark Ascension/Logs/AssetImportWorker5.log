@@ -15,7 +15,7 @@ C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends O
 -logFile
 Logs/AssetImportWorker5.log
 -srvPort
-50007
+63094
 Successfully changed project path to: C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends Of Zanzark Ascension
 C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends Of Zanzark Ascension
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/james/Desktop/Loz/ReligionThingy/LegendsofZanzarkReligionGame/Legends O
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 288.09 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 165.05 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.7f1 (24e8595d6d43)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -63,42 +63,202 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56764
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56400
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.029530 seconds.
+Registered in 0.015799 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 313.93 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 228.27 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.344 seconds
+- Completed reload, in  1.433 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2345ms)
-		BeginReloadAssembly (303ms)
+	ReloadAssembly (1434ms)
+		BeginReloadAssembly (144ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (3ms)
-		EndReloadAssembly (1567ms)
-			LoadAssemblies (293ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (1051ms)
+			LoadAssemblies (140ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (382ms)
+			SetupTypeCache (205ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (94ms)
-			SetupLoadedEditorAssemblies (905ms)
+			RebuildScriptCaches (58ms)
+			SetupLoadedEditorAssemblies (679ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (25ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (314ms)
+				InitializePlatformSupportModulesInManaged (17ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (229ms)
 				BeforeProcessingInitializeOnLoad (4ms)
-				ProcessInitializeOnLoadAttributes (425ms)
-				ProcessInitializeOnLoadMethodAttributes (136ms)
+				ProcessInitializeOnLoadAttributes (332ms)
+				ProcessInitializeOnLoadMethodAttributes (97ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.026636 seconds.
+Registered in 0.018653 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x00032] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:48 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\james\Desktop\Loz\ReligionThingy\LegendsofZanzarkReligionGame\Legends Of Zanzark Ascension\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.578 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2580ms)
+		BeginReloadAssembly (202ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (2185ms)
+			LoadAssemblies (148ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (511ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (94ms)
+			SetupLoadedEditorAssemblies (1366ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (196ms)
+				ProcessInitializeOnLoadAttributes (1081ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
+				AfterProcessingInitializeOnLoad (16ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3576 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (83.5 KB). Loaded Objects now: 4054.
+Memory consumption went from 141.4 MB to 141.3 MB.
+Total: 25.032200 ms (FindLiveObjects: 0.505200 ms CreateObjectMapping: 0.433900 ms MarkObjects: 23.879500 ms  DeleteObjects: 0.211700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 216979.232731 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/NorthWindPass.png
+  artifactKey: Guid(0fbebf96a19d9804f946fa8d3493b549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/NorthWindPass.png using Guid(0fbebf96a19d9804f946fa8d3493b549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef687609379551aedba61b12764d1769') in 0.195419 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 61.990002 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/Merchants Road North.png
+  artifactKey: Guid(2695e7e18d64e8b45be98813d9b1f1f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/Merchants Road North.png using Guid(2695e7e18d64e8b45be98813d9b1f1f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5414fa1364db14fffe70aff57e2a6f95') in 0.143368 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/NorthWindPass.png
+  artifactKey: Guid(0fbebf96a19d9804f946fa8d3493b549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/NorthWindPass.png using Guid(0fbebf96a19d9804f946fa8d3493b549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d4d03c4b871c83d6332a5758f46bed3') in 0.034661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000086 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/ThaurassiansTomb.png
+  artifactKey: Guid(cd59a17c1cedfae4b8d7d73488770868) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/ThaurassiansTomb.png using Guid(cd59a17c1cedfae4b8d7d73488770868) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7efa20f163fc448de56bb92286b1dda5') in 0.039123 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 548.356413 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/Song Wus Landing.png
+  artifactKey: Guid(85ccad2ed26f25c4d9ef0c39cc34ff0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/Song Wus Landing.png using Guid(85ccad2ed26f25c4d9ef0c39cc34ff0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5452afaa497152e11a61b71780727a0') in 0.025306 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/Twisted Viper Hold.png
+  artifactKey: Guid(3e5c7dd1ce9b775408be3e9c39785174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/Twisted Viper Hold.png using Guid(3e5c7dd1ce9b775408be3e9c39785174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a720b05e21935557e006d6b6ab606c50') in 0.023300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.900981 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/Song Wus Landing.png
+  artifactKey: Guid(85ccad2ed26f25c4d9ef0c39cc34ff0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/Song Wus Landing.png using Guid(85ccad2ed26f25c4d9ef0c39cc34ff0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d615c2e11010ff78c4cc13cc4e0658b') in 0.032180 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/Twisted Viper Hold.png
+  artifactKey: Guid(3e5c7dd1ce9b775408be3e9c39785174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/Twisted Viper Hold.png using Guid(3e5c7dd1ce9b775408be3e9c39785174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1902b52c68e6f9b30770e06ba30eb78d') in 0.032967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 376.385132 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/DarkLands/Yarricks End.png
+  artifactKey: Guid(d9da42c4297804e4180b317f91194423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/DarkLands/Yarricks End.png using Guid(d9da42c4297804e4180b317f91194423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8271caf459884be2a588cf737e9634ef') in 0.033109 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 215.095744 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/DarkLands/DeathsBirth.png
+  artifactKey: Guid(3caa6cc299d9b584ebc13e1d3f8ddb22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/DarkLands/DeathsBirth.png using Guid(3caa6cc299d9b584ebc13e1d3f8ddb22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'feded7513de038c723aa9183849f4e91') in 0.048631 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/DarkLands/FleshFarms.png
+  artifactKey: Guid(b9dead9c90aed424d8264a633c1daadf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/DarkLands/FleshFarms.png using Guid(b9dead9c90aed424d8264a633c1daadf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec520f61e11fc004eebc7c2024d51897') in 0.047944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.471120 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/DarkLands/DeathsBirth.png
+  artifactKey: Guid(3caa6cc299d9b584ebc13e1d3f8ddb22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/DarkLands/DeathsBirth.png using Guid(3caa6cc299d9b584ebc13e1d3f8ddb22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78b1a5846c540ffb2452f4cd7be7bc2b') in 0.047594 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/DarkLands/FleshFarms.png
+  artifactKey: Guid(b9dead9c90aed424d8264a633c1daadf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/DarkLands/FleshFarms.png using Guid(b9dead9c90aed424d8264a633c1daadf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06c1ef1f9554889f7c800bb0563394ed') in 0.042041 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Sprites/MapStuff/MapPieces/DarkLands/Yarricks End.png
+  artifactKey: Guid(d9da42c4297804e4180b317f91194423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/MapStuff/MapPieces/DarkLands/Yarricks End.png using Guid(d9da42c4297804e4180b317f91194423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2cefdb873900da81c9328d79e789175') in 0.057983 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

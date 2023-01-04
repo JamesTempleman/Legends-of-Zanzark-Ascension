@@ -46,10 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayingAs: 0
+  PlayingAsString: 
   InfluenceAvailable: 0
   ControlledTiles: []
-  Ready: 0
+  pv: {fileID: 0}
+  gm: {fileID: 0}
   isReady: 0
+  LocalTileData: []
+  nextTurnReady: 0
 --- !u!114 &7390388756298646595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +70,7 @@ MonoBehaviour:
   group: 0
   OwnerShipWasTransfered: 0
   prefixBackup: -1
-  synchronization: 3
+  synchronization: 1
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0

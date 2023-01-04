@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class TileManager : MonoBehaviour, IPunObservable
+public class TileManager : MonoBehaviour, IPointerClickHandler
 {
     public TerrainType Terrain;
     public List<TileManager> NeighboringTiles;
@@ -12,14 +13,15 @@ public class TileManager : MonoBehaviour, IPunObservable
     public bool isDestroyed;
     public bool isLandMark;
     public bool canBeInfluenced;
+    public bool Enraged;
 
     public Image BackgroundColour;
     public TextMeshProUGUI InfluenceValueTxt;
     public GameObject LandmarkMarker;
-    public Button[] InfluenceButts;
 
     public int InfluenceValueInt;
 
+    public bool Influencable;
 
     public PlayerManager player;
 
@@ -30,6 +32,8 @@ public class TileManager : MonoBehaviour, IPunObservable
     public int InfluenceFromNeighbor = 0;
 
     public int LandMarkInfluence = 1;
+
+    public int OgdarClanId = 0;
 
     public Dictionary<string, int> CurrentInfluenceOnTile = new Dictionary<string, int>()
     {
@@ -77,8 +81,10 @@ public class TileManager : MonoBehaviour, IPunObservable
         EmperorEternal
     }
 
-    public PhotonView pv;
-
+    private void Start()
+    {
+        this.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
+    }
 
     // Start is called before the first frame update
     public void OnGameStart()
@@ -92,10 +98,7 @@ public class TileManager : MonoBehaviour, IPunObservable
             }
         }
 
-        if (isLandMark) 
-        { 
-            LandmarkMarker.SetActive(true); 
-        }
+        
 
         if((int)StartLocale == (int)player.PlayingAs)
         {
@@ -116,6 +119,8 @@ public class TileManager : MonoBehaviour, IPunObservable
         if (!GameStarted)
             return;
 
+        LandmarkMarker.SetActive(isLandMark);
+
         InfluenceValueTxt.text = InfluenceValueInt.ToString();
 
         ValuesForEdditor.Clear();
@@ -124,7 +129,24 @@ public class TileManager : MonoBehaviour, IPunObservable
             ValuesForEdditor.Add(i);
         }
 
+        foreach (string key in PreviousInfluenceOnTile.Keys)
+        {
+            if (NeighboringTiles.Find(neighbor => neighbor.CurrentOwnerCheck() == key && neighbor.isLandMark))
+            {
+                ControlledBy = CurrentOwnerCheck(InfluenceFromNeighbor);
+            }
+            else
+            {
+                ControlledBy = CurrentOwnerCheck(0);
+            }
+        }
+
         InfluenceCheck();
+
+        if (isDestroyed)
+        {
+            BackgroundColour.color = Color.black;
+        }
 
         if (isLandMark && ControlledBy == player.PlayingAsString)
         {
@@ -142,10 +164,9 @@ public class TileManager : MonoBehaviour, IPunObservable
 
         if (player.nextTurnReady)
         {
-            foreach(Button b in InfluenceButts)
-            {
-                b.interactable = false;
-            }
+
+            Influencable = false;
+
         }
     }
 
@@ -158,6 +179,11 @@ public class TileManager : MonoBehaviour, IPunObservable
         {
             int i = CurrentInfluenceOnTile[key] + modifier;
 
+            if(key == "EmperorEternal" && Enraged)
+            {
+                i = i * 2;
+            }
+
             if (i > HighestNum)
             {
                 HighestCult = key;
@@ -166,7 +192,6 @@ public class TileManager : MonoBehaviour, IPunObservable
             }
         }
         
-
         foreach (string key in CurrentInfluenceOnTile.Keys)
         {
             if (CurrentInfluenceOnTile[key] == HighestNum)
@@ -191,12 +216,13 @@ public class TileManager : MonoBehaviour, IPunObservable
         {
             ControlledBy = HighestCult;
 
-            player.SendData(false);
+            player.SendData();
         }
 
         return HighestCult;
 
     }
+
     public string PrevOwnerCheck(int modifier = 0)
     {
         string HighestCult = "";
@@ -239,11 +265,32 @@ public class TileManager : MonoBehaviour, IPunObservable
 
     }
 
-    [PunRPC]
     public void EndTurn()
     {
-        CurrentInfluenceOnTile[player.PlayingAsString] = InfluenceValueInt + InfluenceFromNeighbor;
+        int mod = InfluenceFromNeighbor;
+        
+        //strong
+        if(OgdarClanId == 4)
+        {
+            mod = mod + 1;
+        }
 
+        if (player.PlayingAs == PlayerManager.Cults.DarkPantheon && isLandMark)
+        {
+            mod= mod + 1;
+        }
+
+        if(player.PlayingAs == PlayerManager.Cults.Ancestor && Terrain == TerrainType.Mountain)
+        {
+            mod = mod + InfluenceValueInt;
+        }
+
+        if(player.PlayingAs == PlayerManager.Cults.HighPantheon && Terrain == TerrainType.Forrest)
+        {
+            mod = mod + InfluenceValueInt;
+        }
+
+        CurrentInfluenceOnTile[player.PlayingAsString] = InfluenceValueInt + mod;
         Dictionary<string, int> DataHolder = new Dictionary<string, int>();
 
         DataHolder = CurrentInfluenceOnTile;
@@ -255,7 +302,7 @@ public class TileManager : MonoBehaviour, IPunObservable
 
             if (NeighboringTiles.Find(neighbor => neighbor.CurrentOwnerCheck() == key && neighbor.isLandMark))
             {
-                HighestCult = CurrentOwnerCheck(InfluenceFromNeighbor, true);
+                HighestCult = CurrentOwnerCheck(mod, true);
             }
             else
             {
@@ -268,12 +315,6 @@ public class TileManager : MonoBehaviour, IPunObservable
 
         PreviousInfluenceOnTile = DataHolder;
 
-        if((int)StartLocale == (int)player.PlayingAs && ControlledBy != player.PlayingAsString)
-        {
-            //Kick from game
-            //Player looses game
-        }
-
         foreach(PlayerManager p in GameManager.Players)
         {
             if(ControlledBy == p.PlayingAsString)
@@ -282,7 +323,6 @@ public class TileManager : MonoBehaviour, IPunObservable
                 p.ControlledTiles.Add(this);
             }
         }
-
     }
 
     public void InfluenceCheck()
@@ -298,7 +338,7 @@ public class TileManager : MonoBehaviour, IPunObservable
         {
             if (player.PlayingAs == PlayerManager.Cults.Elemental)
             {
-                foreach (TileManager ti in NeighboringTiles)
+                foreach (TileManager ti in t.NeighboringTiles)
                 {
                     if (ti.ControlledBy == player.PlayingAsString)
                     {
@@ -307,7 +347,7 @@ public class TileManager : MonoBehaviour, IPunObservable
                 }
             }
 
-            else if (t.ControlledBy == player.PlayingAsString)
+            if (t.ControlledBy == player.PlayingAsString)
             {
                 canBeInfluenced = true;
             }
@@ -317,17 +357,11 @@ public class TileManager : MonoBehaviour, IPunObservable
 
         if (canBeInfluenced)
         {
-            foreach (Button b in InfluenceButts)
-            {
-                b.interactable = true;
-            }
+            Influencable = true;
         }
         else
         {
-            foreach (Button b in InfluenceButts)
-            {
-                b.interactable = false;
-            }
+            Influencable = false;
         }
         Color c = Color.white;
 
@@ -344,17 +378,22 @@ public class TileManager : MonoBehaviour, IPunObservable
                 c = Color.cyan;
                 break;
             case "Ancestor":
+                c = Color.blue;
                 break;
             case "HighPantheon":
+                c = new Color(0.6392157f, 0.7960784f, 0.1843137f);
                 break;
             case "DarkPantheon":
+                c = new Color(0.0497508f, 0.245283f, 0.05721563f);
                 break;
             case "Elemental":
+                c = new Color(0.5283019f,0f, 0.201051f);
                 break;
             case "BlackBlood":
                 c = Color.red;
                 break;
             case "Ogdarism":
+                c = new Color(0.9339623f, 0.32505f, 0f);
                 break;
             case "LegionsofAboracrom":
                 c = Color.magenta;
@@ -382,14 +421,100 @@ public class TileManager : MonoBehaviour, IPunObservable
         UnControlled
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    //on use abilities
+    public void OnPointerClick(PointerEventData eventData)
     {
-    }
 
+        if (GameManager.MakeExample)
+        {
+            if (ControlledBy == player.PlayingAsString)
+            {
+                isDestroyed = true;
+                player.InfluenceAvailable = player.InfluenceAvailable + 10;
+                player.gm.TurnOffAbilityUI();
+                GameManager.MakeExample = false;
+            }
+        }
+        else if (GameManager.PurgeNonBelievers)
+        {
+            Debug.Log("1");
+            bool neighborcheck = false;
+            foreach (TileManager t in NeighboringTiles)
+            {
+                if (t.ControlledBy == player.PlayingAsString)
+                {
+                    Debug.Log("2");
+                    neighborcheck = true;
+                }
+            }
+            if (neighborcheck)
+            {
+                Debug.Log("3");
+                CurrentInfluenceOnTile[player.PlayingAsString] = 100;
+                player.gm.TurnOffAbilityUI();
+                GameManager.PurgeNonBelievers = false;
+            }
+        }
+        else if (GameManager.DwarvenTunnels)
+        {
+            InfluenceValueInt++;
+            player.gm.TurnOffAbilityUI();
+            GameManager.DwarvenTunnels = false;
+        }
+        else if (GameManager.Erruption)
+        {
+            isDestroyed = true;
+            player.gm.TurnOffAbilityUI();
+            GameManager.Erruption = false;
+        }
+        else if (GameManager.RedRage)
+        {
+            Enraged = true;
+            player.gm.TurnOffAbilityUI();
+            GameManager.RedRage = false;
+        }
+        else if (isLandMark && player.PlayingAs == PlayerManager.Cults.Ogdarism && ControlledBy == player.PlayingAsString)
+        {
+            player.gm.OgdarOptions(this);
+        }
+        else if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            PlusInfulence();
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            MinusInfulence();
+        }
+
+    }
+    
     public void onPointerEnter()
     {
-        player.gm.toolTipOn(PreviousInfluenceOnTile);
 
+        if (!isDestroyed)
+        {
+            player.gm.toolTipOn(PreviousInfluenceOnTile);
+
+            string s = "";
+            switch (Terrain)
+            {
+                case TerrainType.Mountain:
+                    s = "Mountains";
+                    break;
+                case TerrainType.Forrest:
+                    s = "Forrests";
+                    break;
+                case TerrainType.Plains:
+                    s = "Plains";
+                    break;
+                case TerrainType.Wasteland:
+                    s = "Wastelands";
+                    break;
+            }
+            player.gm.toolTipOn(s);
+        }
+        else
+            player.gm.toolTipOn("Destroyed");
     }
 
     public void onPointerExit()
@@ -406,7 +531,6 @@ public class TileManager : MonoBehaviour, IPunObservable
             InfluenceValueInt++;
             player.InfluenceAvailable--;
         }
-
     }
 
     public void MinusInfulence()
@@ -416,7 +540,5 @@ public class TileManager : MonoBehaviour, IPunObservable
             InfluenceValueInt--;
             player.InfluenceAvailable++;
         }
-
     }
-
 }

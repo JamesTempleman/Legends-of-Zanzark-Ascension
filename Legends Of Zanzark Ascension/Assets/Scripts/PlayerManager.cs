@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IPunObservable
 {
+
+    public int LoadingStatus;
+
     public Cults PlayingAs;
 
     public string PlayingAsString;
@@ -18,6 +21,28 @@ public class PlayerManager : MonoBehaviour, IPunObservable
     public List<TileManager> LocalTileData;
 
     public bool nextTurnReady = false;
+    
+    [PunRPC]
+    public void NextGamePhase()
+    {
+       gm.NextGamePhase();
+    }
+
+    [PunRPC]
+    void EndTurn()
+    {
+        foreach(TileManager t in gm.AllTiles)
+        {
+            t.EndTurn();
+        }
+    }
+
+
+    [PunRPC]
+    void NextTurn()
+    {
+        nextTurnReady = true;
+    }
 
     void Start()
     {
@@ -28,19 +53,31 @@ public class PlayerManager : MonoBehaviour, IPunObservable
         LocalTileData = gm.AllTiles;
     }
 
-    public void SendData(bool b = true)
+    public void SendData()
     {
         foreach (TileManager t in LocalTileData)
         {
-            pv.RPC("RecieveTileData", PhotonTargets.Others, new object[] { t.name, PlayingAsString, t.CurrentInfluenceOnTile[PlayingAsString] });
+            if (t.CurrentInfluenceOnTile[PlayingAsString] > 0)
+                pv.RPC("RecieveTileData", PhotonTargets.Others, new object[] { t.name, PlayingAsString, t.CurrentInfluenceOnTile[PlayingAsString] });
         }
-        nextTurnReady = b;
-        gm.WaitingForPlayers.SetActive(b);
+
+        if (pv.owner == PhotonNetwork.player)
+        {
+            LoadingStatus++;
+        }
+    }
+
+    [PunRPC]
+    public void RecieveTileData(string TileName, string PlayingAs, int influence)
+    {
+        LocalTileData.Find(tile => tile.name == TileName).CurrentInfluenceOnTile[PlayingAs] = influence;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         LocalTileData = gm.AllTiles;
 
         switch (PlayingAs)
@@ -86,11 +123,6 @@ public class PlayerManager : MonoBehaviour, IPunObservable
         
     }
 
-    [PunRPC]
-    public void RecieveTileData(string TileName, string PlayingAs, int influence)
-    {
-        LocalTileData.Find(tile => tile.name == TileName).CurrentInfluenceOnTile[PlayingAs] = influence;
-    }
 
     public enum Cults
     {
@@ -128,7 +160,6 @@ public class PlayerManager : MonoBehaviour, IPunObservable
         //bonus influence for Legions of Aboracrom if there are many points on location
         if (PlayingAs == Cults.LegionsofAboracrom)
         {
-            Debug.Log("Abora");
             foreach (TileManager t in ControlledTiles)
             {
                 if (t.InfluenceValueInt > 2)
@@ -136,18 +167,27 @@ public class PlayerManager : MonoBehaviour, IPunObservable
                     mod = mod + (t.InfluenceValueInt % 3);
                 }
             }
-            Debug.Log(mod.ToString());
         }
-            InfluenceAvailable = ControlledTiles.Count + (int)mod;
+        if (PlayingAs == Cults.Ogdarism)
+        {
+            foreach (TileManager t in ControlledTiles)
+            {
+                if (t.OgdarClanId == 1)
+                {
+                    mod = mod + 1;
+                }
+            }
+        }
+        InfluenceAvailable = ControlledTiles.Count + (int)mod;
 
-        Debug.Log(InfluenceAvailable.ToString());
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
-            stream.SendNext(nextTurnReady);
+            stream.SendNext(LoadingStatus);
+
             stream.SendNext(isReady);
             stream.SendNext(PlayingAs);
 
@@ -156,12 +196,12 @@ public class PlayerManager : MonoBehaviour, IPunObservable
         }
         if (stream.isReading)
         {
-            nextTurnReady = (bool)stream.ReceiveNext();
+            LoadingStatus = (int)stream.ReceiveNext();
+
             isReady = (bool)stream.ReceiveNext();
             PlayingAs = (Cults)stream.ReceiveNext();
 
             InfluenceAvailable = (int)stream.ReceiveNext();
-
         }
     }
 }
