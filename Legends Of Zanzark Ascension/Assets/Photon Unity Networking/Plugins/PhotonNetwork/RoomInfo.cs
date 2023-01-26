@@ -154,6 +154,10 @@ public class RoomInfo
         this.nameField = roomName;
     }
 
+    public RoomInfo()
+    {
+    }
+
     /// <summary>
     /// Makes RoomInfo comparable (by name).
     /// </summary>

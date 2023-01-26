@@ -11,7 +11,7 @@ namespace CyberMath
         private static Random rng = new Random();
         private static readonly object syncLock = new object();
 
-
+        //returns a random double between the given paramaters
         public static double GetRandomDouble(double min, double max)
         {
             lock (syncLock)
@@ -20,6 +20,8 @@ namespace CyberMath
             }
         }
 
+
+        //returns a random int between the given paramaters
         public static int GetRandomInt(int min, int max)
         {
             lock (syncLock)
@@ -28,6 +30,7 @@ namespace CyberMath
             }
         }
 
+        //returns a given degree in radians
         public static float GetDegreeInRadians(float degree)
         {
             return degree * (float)Math.PI / 180;
