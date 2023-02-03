@@ -5607,7 +5607,6 @@ MonoBehaviour:
   player: {fileID: 0}
   ComfirmBut: {fileID: 758317968}
   SelectedCult: 0
-  CoverPanel: {fileID: 412949794}
 --- !u!1 &412949794
 GameObject:
   m_ObjectHideFlags: 0
@@ -15434,8 +15433,6 @@ MonoBehaviour:
   InfluenceAvailableTxt: {fileID: 59143117}
   TilesOwnedTxt: {fileID: 1272209706}
   TurnCounterTxt: {fileID: 1792677067}
-  ServernameTxt: {fileID: 1989767705}
-  ServerPassTxt: {fileID: 361393930}
   GameUI: {fileID: 62944368}
   EndTxt: {fileID: 544939738}
   EndPanel: {fileID: 1805339997}
@@ -15452,7 +15449,6 @@ MonoBehaviour:
   DedicationBut: {fileID: 425970031}
   OgdarOptionsPanel: {fileID: 1885809971}
   OgdarLookingAt: {fileID: 0}
-  WinnerScreenToggle: {fileID: 1805339997}
 --- !u!4 &948405506
 Transform:
   m_ObjectHideFlags: 0
@@ -28104,7 +28100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1891064358
 RectTransform:
   m_ObjectHideFlags: 0
